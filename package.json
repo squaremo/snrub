@@ -1,0 +1,16 @@
+{
+  "author": "Michael Bridgen <mikeb@squaremobius.net>",
+  "name": "snrub",
+  "description": "PuSH (pubsubhubbub) subscriber as Connect middleware",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/squaremo/snrub.git"
+  },
+  "engines": {
+    "node": "~0.6.4"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "optionalDependencies": {}
+}
