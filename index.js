@@ -49,12 +49,12 @@ exports.createSubscriber = function(options) {
   var paths = options.paths;
   var tokens = options.tokens;
   if (!paths || !tokens) {
-    var secret;
-    if (!options.secret) {
+    var secret = options.secret;
+    if (!secret) {
       warn("Using generated secret");
       warn("-> may not work in load-balanced configuration");
+      secret = require('crypto').randomBytes(16);
     }
-    var secret = require('crypto').randomBytes(16);
     paths = paths || listener.cryptoPathProvider(secret);
     tokens = tokens || listener.cryptoTokenProvider(secret);
   }
