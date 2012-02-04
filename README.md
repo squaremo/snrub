@@ -26,3 +26,5 @@ updates from the hubs and emit them as events.
     });
 
     app.listen(8000); // pretending we are on host example.com
+
+A demo is available at http://snrub-demo.cloudfoundry.com/.
