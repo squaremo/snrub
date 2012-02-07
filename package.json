@@ -10,7 +10,10 @@
   "engines": {
     "node": "~0.6.4"
   },
+  "scripts": {
+    "test": "make test"
+  },
   "dependencies": {},
-  "devDependencies": {},
+  "devDependencies": {"mocha": "~0.10"},
   "optionalDependencies": {}
 }
