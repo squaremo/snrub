@@ -1,4 +1,6 @@
 var listener = require('./lib/listener');
+var scheduler = require('./lib/scheduler');
+var dedup = require('./lib/dedup');
 
 function warn(str) {
   console.warn("[snrub] " + str);
@@ -60,3 +62,9 @@ exports.createSubscriber = function(options) {
   }
   return listener.createListener(host, prefix, paths, tokens);
 }
+
+// Go with noddy implementations for now.
+exports.createPoller = function() {
+  return new scheduler.TimeScheduler();
+}
+exports.dedup = dedup.create;
