@@ -25,6 +25,10 @@ function handle(req, res) {
       sendSubscriptionVerification(params);
     });
   }
+  else if (req.url == '/subscribe404' && req.method == 'POST') {
+    res.statusCode = 404;
+    res.end();
+  }
   else {
     res.statusCode = 404;
     res.end();

@@ -50,9 +50,9 @@ suite("Default subscriber", function() {
     });
   });
 
-  test("bogus", function(done) {
+  test("404", function(done) {
     var topic = cons_topic();
-    listener.subscribe("http://localhost:8000/bogus",
+    listener.subscribe("http://localhost:8000/subscribe404",
                        topic,
                        {},
                        function(_path) {
