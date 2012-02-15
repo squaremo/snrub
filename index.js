@@ -65,6 +65,6 @@ exports.createSubscriber = function(options) {
 
 // Go with noddy implementations for now.
 exports.createPoller = function() {
-  return new scheduler.TimeScheduler();
+  return new scheduler.TimerScheduler();
 }
 exports.dedup = dedup.create;
