@@ -1,5 +1,6 @@
 var assert = require('assert');
 var connect = require('connect');
+var http = require('http');
 
 var server = require('../mockserver').server;
 server.listen(8000);
@@ -10,21 +11,22 @@ suite("Default subscriber", function() {
     return "http://example.com/" + require('crypto').randomBytes(4).toString('hex');
   }
 
-  var listener, app, secret;
+  var listener, app, secret, httpserv;
   setup(function(done) {
     secret = require('crypto').randomBytes(16).toString('base64');
     listener = require('../index').createSubscriber(
       {host: 'http://localhost:8001',
        prefix: '/snrubtest',
        secret: secret});
-    app = connect.createServer(
+    app = connect(
       listener.middleware()
     );
-    app.listen(8001, done);
+    httpserv = http.createServer(app);
+    httpserv.listen(8001, done);
   });
   teardown(function(done) {
-    app.on('close', done);
-    app.close();
+    httpserv.on('close', done);
+    httpserv.close();
   });
 
   test("subscribeOK", function(done) {
