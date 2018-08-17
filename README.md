@@ -1,3 +1,5 @@
+![snrub logo](https://vignette.wikia.nocookie.net/simpsons/images/5/5e/Snrub.jpg/revision/latest?cb=20140416021517)
+
 # PuSH subscriber as Connect middleware
 
 This module provides a [PuSH
